@@ -11,9 +11,8 @@ struct MainView: View {
     let apiUrl = URL(string: "https://api.thecatapi.com/v1/breeds")!
     
     var body: some View {
-        
-        NavigationView {
-            
+        // Bottom Navigation between info and list site
+        NavigationStack {
             TabView {
                 ListView(viewModel: ViewModel(), breedURL: apiUrl)
                 .tabItem {
@@ -25,10 +24,9 @@ struct MainView: View {
                 }
             } // MARK: TabView End
             .accentColor(.black)
-            .navigationBarTitle("Gaze in wonder...", displayMode: .inline)
-                
+            .navigationTitle("Gaze in wonder...")
+            .navigationBarTitleDisplayMode(.inline)
         } // MARK: NavigationView End
-        .navigationViewStyle(.stack)
     } // MARK: body End
 }
 
